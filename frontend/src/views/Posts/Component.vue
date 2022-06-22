@@ -31,3 +31,5 @@ onMounted(() => {
 
 
 </script>
+
+<style lang="scss" src="./styles.scss" />
