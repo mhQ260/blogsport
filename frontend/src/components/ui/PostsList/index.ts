@@ -1,0 +1,1 @@
+export { default as UiPostsList } from './Component.vue';

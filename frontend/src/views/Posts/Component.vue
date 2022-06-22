@@ -1,14 +1,13 @@
 <template>
   <div class="posts">
-    <h1>
-      Posts
-    </h1>
-    <div
-      v-for="post in APIData"
-      :key="post.id"
-    >
-      {{ post }}
+    <div class="posts__title">
+      <h1>
+        Posts
+      </h1>
     </div>
+    <UiPostsList
+      :posts="APIData"
+    />
   </div>
 </template>
 
@@ -16,6 +15,7 @@
 import { onMounted, ref } from 'vue';
 import { URI_POSTS } from '../../api/endpoints';
 import { getAPI } from '../../api/http';
+import { UiPostsList } from '../../components';
 
 const APIData = ref({});
 
