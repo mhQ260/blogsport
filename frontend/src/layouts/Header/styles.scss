@@ -1,0 +1,33 @@
+.header {
+  // height: 8rem;
+  background-color: $gray;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__logo {
+    background-color: $gray-dark;
+    padding: .8rem 3.2rem;
+    font-size: 2.6rem;
+  }
+
+  &__navigation {
+    padding: .6rem 3.2rem;
+    display: flex;
+
+    .navigation__item {
+
+      a {
+        margin-right: 4rem;
+        font-size: 1.4rem;
+        color: $white;
+        text-decoration: none;
+
+        &:hover {
+          color: $teal;
+        }
+      }
+    }
+  }
+}
