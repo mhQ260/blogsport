@@ -30,6 +30,8 @@
 <script setup lang="ts">
 import { toRefs } from 'vue';
 import router from '../../../router';
+import { URI_POST_DELETE_ID } from '../../../api/endpoints';
+import { getAPI } from '../../../api/http';
 
 const props = defineProps({
   post: {
@@ -46,9 +48,20 @@ const updateButtonHandler = (): void => {
   console.log('Update');
 };
 
+const deleteFunc = async (): Promise<void> => {
+  try {
+    await getAPI.post(URI_POST_DELETE_ID(Number(post.value.id)));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 const deleteButtonHandler = (): void => {
   const confirmAction = confirm('Czy na pewno chcesz usunąć dany post?');
-  if (confirmAction) router.push({ path: '/' });
+  if (confirmAction) {
+    deleteFunc();
+    router.push({ path: '/' });
+  }
 };
 
 </script>
