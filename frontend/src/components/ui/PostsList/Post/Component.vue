@@ -1,15 +1,18 @@
 <template>
   <div class="UiPost">
-    <a 
-      :href="`/post/${post.id}`"
+    <RouterLink 
+      :to="{
+        path: `/post/${post.id}`,
+        params: {id: post.id}
+      }"
     >
       <div class="UiPost__title">
-          {{ post.title }}
+        {{ post.title }}
       </div>
       <div class="UiPost__content">
         {{ post.content }}
       </div>
-    </a>
+    </RouterLink>
   </div>
 </template>
 

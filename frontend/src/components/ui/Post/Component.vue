@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, toRefs } from 'vue';
+import { toRefs } from 'vue';
 
 const props = defineProps({
   post: {
