@@ -1,0 +1,1 @@
+export { default as UiAddPost } from './Component.vue';

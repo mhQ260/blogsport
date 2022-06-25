@@ -1,0 +1,43 @@
+.ui-add-post {
+  height: 100%;
+  width: 65%;
+  margin: 1rem auto;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+      margin-bottom: 1.6rem;
+      border: 1px solid $teal-dark;
+      padding: .6rem;
+
+      &:focus {
+        border: 2px solid $teal-dark;
+      }
+    }
+
+    button {
+      width: 15%;
+      background: $teal-dark;
+      color: $white;
+      border: 1px solid $teal-dark;
+      border-radius: 1.2rem;
+      cursor: pointer;
+
+      &:hover {
+        background: $teal;
+        border-color: $teal;
+      }
+
+      &:focus {
+        border: 1px solid $teal;
+      }
+    }
+
+    textarea {
+      overflow: auto;
+      outline: none;
+    }
+  }
+}
