@@ -1,11 +1,15 @@
 <template>
   <div class="UiPost">
-    <div class="UiPost__title">
-      {{ post.title }}
-    </div>
-    <div class="UiPost__content">
-      {{ post.content }}
-    </div>
+    <a 
+      :href="`/post/${post.id}`"
+    >
+      <div class="UiPost__title">
+          {{ post.title }}
+      </div>
+      <div class="UiPost__content">
+        {{ post.content }}
+      </div>
+    </a>
   </div>
 </template>
 

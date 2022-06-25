@@ -1,6 +1,14 @@
 .UiPost {
   margin-bottom: 4rem;
 
+  &:hover {
+    color: $teal-dark;
+
+    a {
+      color: $teal-dark;
+    }
+  }
+
   &__title {
     font-size: 2.4rem;
     margin-bottom: .8rem;

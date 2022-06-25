@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { UiAddPost } from '../../components/ui/AddPost';
+import { UiAddPost } from '../../components/ui';
 </script>
 
 <style lang="scss" src="./styles.scss" />
