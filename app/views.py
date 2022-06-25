@@ -15,6 +15,13 @@ class PostView(APIView):
     def post(self, request):
         data = JSONParser().parse(request)
         serializer = PostSerializer(data=data)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             serializer.save()
         return Response(serializer.data)
+
+class PostDetailView(APIView):
+    def get(self, request, post_id):
+        post = Post.objects.get(id=post_id)
+        serializer = PostSerializer(post)
+        return Response(serializer.data)
+
