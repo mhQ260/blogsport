@@ -1,0 +1,37 @@
+.ui-post {
+  height: 100%;
+  width: 65%;
+  margin: 1rem auto;
+
+  &__title {
+    font-size: 3rem;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__buttons > button {
+    padding: .4rem;
+    margin-left: .8rem;
+    background-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $teal;
+    }
+  }
+
+  &__content {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+  }
+
+  &__date {
+    font-size: 1.2rem;
+    margin-bottom: 10rem;
+  }
+
+  &__comments {
+    font-size: 2rem;
+  }
+}
