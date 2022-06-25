@@ -1,11 +1,13 @@
 from django.db import models
 
-#Definiujemy modele dla naszej DB
+#Zdefniowanie modeli dla DB
 class Post (models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    image = models.ImageField(upload_to="uploads/images")
-    public_date = models.DateTimeField('date published')
+    public_date = models.DateTimeField(auto_now_add=True, blank=True)
+
+    class Meta:
+        ordering = ('-public_date',)
 
     def __str__(self):
         return self.title
@@ -13,4 +15,4 @@ class Post (models.Model):
 class Comment (models.Model):
 
     content = models.TextField()
-    public_date = models.DateTimeField('date published')
+    public_date = models.DateTimeField(auto_now_add=True, blank=True)
