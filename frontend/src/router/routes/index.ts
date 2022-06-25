@@ -11,6 +11,11 @@ const routes = [
     name: RouteName.ADD_POST,
     component: () => import('../../views/AddPost'),
   },
+  {
+    path: '/post/:id',
+    name: RouteName.GET_POST,
+    component: () => import('../../views/Post'),
+  },
 ];
 
 export default routes;
