@@ -49,10 +49,7 @@ const clearForm = (): void => {
 
 const sendForm = async (): Promise<void> => {
   try {
-    const formData = new FormData(); 
-    formData.append('title', post.value.title);
-    formData.append('content', post.value.content);
-    await getAPI.post(URI_POST_ADD, formData);
+    await getAPI.post(URI_POST_ADD, post.value);
     clearForm();
   } catch (err) {
     console.log(err);
