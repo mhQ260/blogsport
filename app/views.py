@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from . models import Post
 from . serializers import PostSerializer
+from django.shortcuts import get_object_or_404
 
 class PostView(APIView):
     def get(self, request, format=None):
@@ -24,4 +25,9 @@ class PostDetailView(APIView):
         post = Post.objects.get(id=post_id)
         serializer = PostSerializer(post)
         return Response(serializer.data)
-
+    
+class PostDelete(APIView):
+    def post(self, request, post_id):
+        post = get_object_or_404(Post, id=post_id)
+        post.delete()
+        return Response()
