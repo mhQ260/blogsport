@@ -25,6 +25,16 @@ class PostDetailView(APIView):
         post = Post.objects.get(id=post_id)
         serializer = PostSerializer(post)
         return Response(serializer.data)
+
+    def put(self, request, post_id):
+        # post = self.get_object()
+        data = request.data
+        post = Post.objects.get(id=post_id)
+        post.title = data["title"]
+        post.content = data["content"]
+        post.save()
+        serializer = PostSerializer(post)
+        return Response(serializer.data)
     
 class PostDelete(APIView):
     def post(self, request, post_id):
