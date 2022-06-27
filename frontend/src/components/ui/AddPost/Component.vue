@@ -1,21 +1,22 @@
 <template>
   <div class="ui-add-post">
-    <form 
+    <form
+      v-if="!postToUpdate"
       class="form"
       @submit="submitForm"
     >
-      <input 
-        class="form__item"
-        type="text" 
-        placeholder="Title"
+      <input
         v-model="post.title"
-      />
+        class="form__item"
+        type="text"
+        placeholder="Title"
+      >
       <textarea
+        v-model="post.content"
         class="form__item"
         rows="15"
         cols="100"
         placeholder="Content"
-        v-model="post.content"
       />
       <button
         class="form__item"
@@ -23,13 +24,49 @@
         Dodaj artykuł
       </button>
     </form>
+    <form
+      v-else
+      class="form"
+      @submit="submitForm"
+    >
+      <input
+        v-model="postToUpdate.title"
+        class="form__item"
+        type="text" 
+        placeholder="Title"
+      >
+      <textarea
+        v-model="postToUpdate.content"
+        class="form__item"
+        rows="15"
+        cols="100"
+        placeholder="Content"
+      />
+      <button
+        class="form__item"
+      >
+        Zaktualizuj artykuł
+      </button>
+    </form>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, toRefs } from 'vue';
 import { getAPI } from '../../../api/http';
-import { URI_POST_ADD } from '../../../api/endpoints';
+import { URI_POST_ADD, URI_POST_UPDATE } from '../../../api/endpoints';
+import router from '../../../router';
+
+const props = defineProps({
+  postToUpdate: {
+    type: Object,
+    required: true,
+  },
+});
+
+const {
+  postToUpdate,
+} = toRefs(props);
 
 const post = ref({
   title: '',
@@ -38,7 +75,7 @@ const post = ref({
 
 const submitForm = (e: Event): void => {
   e.preventDefault();
-  sendForm();
+  !postToUpdate ? sendForm() : sendUpdatedForm();
 };
 
 const clearForm = (): void => {
@@ -51,6 +88,15 @@ const sendForm = async (): Promise<void> => {
   try {
     await getAPI.post(URI_POST_ADD, post.value);
     clearForm();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const sendUpdatedForm = async (): Promise<void> => {
+  try {
+    await getAPI.put(URI_POST_UPDATE(Number(postToUpdate.value.id)), postToUpdate.value);
+    router.push({ path: '/' });
   } catch (err) {
     console.log(err);
   }

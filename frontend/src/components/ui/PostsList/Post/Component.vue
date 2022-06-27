@@ -2,7 +2,7 @@
   <div class="UiPost">
     <RouterLink 
       :to="{
-        path: `/post/${post.id}`,
+        path: `/post/${post.id}/`,
         params: {id: post.id}
       }"
     >
