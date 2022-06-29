@@ -35,7 +35,7 @@ npm install
 
 Then you should create an .env file and declare variables in it:
 ```
-VUE_APP_API='http:/xxx',
+VITE_APP_API='http:/xxx',
 VITE_APP_PORT=xxx
 ```
 
