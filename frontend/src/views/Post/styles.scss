@@ -1,0 +1,24 @@
+.post {
+
+  &__wrapper {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    & button {
+      background-color: transparent;
+
+      &:nth-child(1) {
+        margin-right: auto;
+      }
+    }
+  }
+}

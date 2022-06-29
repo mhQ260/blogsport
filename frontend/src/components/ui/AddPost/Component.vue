@@ -3,7 +3,7 @@
     <form
       v-if="!postToUpdate"
       class="form"
-      @submit="submitForm"
+      @submit="sendForm"
     >
       <input
         v-model="post.title"
@@ -27,7 +27,7 @@
     <form
       v-else
       class="form"
-      @submit="submitForm"
+      @submit="sendUpdatedForm"
     >
       <input
         v-model="postToUpdate.title"
@@ -73,18 +73,14 @@ const post = ref({
   content: '',
 });
 
-const submitForm = (e: Event): void => {
-  e.preventDefault();
-  !postToUpdate ? sendForm() : sendUpdatedForm();
-};
-
 const clearForm = (): void => {
   post.value.title = '';
   post.value.content = '';
   alert('Dodano post!');
 };
 
-const sendForm = async (): Promise<void> => {
+const sendForm = async (e: Event): Promise<void> => {
+  e.preventDefault();
   try {
     await getAPI.post(URI_POST_ADD, post.value);
     clearForm();
@@ -93,7 +89,7 @@ const sendForm = async (): Promise<void> => {
   }
 };
 
-const sendUpdatedForm = async (): Promise<void> => {
+const sendUpdatedForm = async (e: Event): Promise<void> => {
   try {
     await getAPI.put(URI_POST_UPDATE(Number(postToUpdate.value.id)), postToUpdate.value);
     router.push({ path: '/' });

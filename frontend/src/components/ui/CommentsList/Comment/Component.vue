@@ -1,13 +1,13 @@
 <template>
-  <div class="ui-post">
-    <div class="ui-post__title">
-      <div>{{ post.title }}</div>
+  <div class="ui-comment">
+    <div class="ui-comment__title">
+      <div>{{ comment.author }}</div>
     </div>
-    <div class="ui-post__content">
-      {{ post.content }}
+    <div class="ui-comment__content">
+      {{ comment.content }}
     </div>
-    <div class="ui-post__date">
-      Opublikowano - {{ post.public_date }}
+    <div class="ui-comment__date">
+      Opublikowano - {{ comment.public_date }}
     </div>
   </div>
 </template>
@@ -16,14 +16,14 @@
 import { toRefs } from 'vue';
 
 const props = defineProps({
-  post: {
+  comment: {
     type: Object,
     required: true,
   },
 });
 
 const {
-  post,
+  comment,
 } = toRefs(props);
 
 </script>
