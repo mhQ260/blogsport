@@ -90,8 +90,8 @@ const sendForm = async (e: Event): Promise<void> => {
     console.log(err);
   }
 };
-
 const sendUpdatedForm = async (e: Event): Promise<void> => {
+  e.preventDefault();
   try {
     await getAPI.put(URI_POST_UPDATE(Number(postToUpdate.value.id)), postToUpdate.value);
     router.push({ path: '/' });

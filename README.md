@@ -1,6 +1,6 @@
 # Blogsport Application
 
-#### Education app written in Vue3, TypeScript, Sass by Mateusz Hudzik
+#### Education app written in Python, Django Vue3, TypeScript, Sass by Mateusz Hudzik
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@
 
 ### Backend
 
-First make sure that you have django set up. If not, go to the documentation [@django docs](https://docs.djangoproject.com/en/4.0/topics/install/)
+First make sure that you have django set up. If not, go to the documentation [django docs](https://docs.djangoproject.com/en/4.0/topics/install/)
 
 For run the server, you should run a simple script:
 

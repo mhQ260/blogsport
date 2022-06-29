@@ -106,6 +106,7 @@ module.exports = {
         'vue/no-unused-components': 'error',
         'vue/no-v-html': 'off',
         'vue/eqeqeq': 'error',
+        'vue/v-on-event-hyphenation': 0,
         'vue/component-name-in-template-casing': [
         'error',
         'PascalCase',
