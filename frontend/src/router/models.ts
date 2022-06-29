@@ -3,3 +3,5 @@ export enum RouteName {
     ADD_POST = 'AddPost',
     GET_POST = 'GetPost',
 }
+
+//modele dla routes

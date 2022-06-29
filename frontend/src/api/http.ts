@@ -1,3 +1,4 @@
+//zdefiniowanie defaultowych ustawień do połączenia z serverem backendowym
 import axios from 'axios';
 
 export const getAPI = axios.create({

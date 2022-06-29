@@ -1,5 +1,5 @@
 import { RouteName } from '../models';
-
+//zadeklarowanie routes'ów na potrzeby routingu zadeklarowanego w layout'ie content
 const routes = [
   {
     path: '/',
