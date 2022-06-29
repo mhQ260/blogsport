@@ -18,7 +18,7 @@
 
 ### Backend
 
-First make sure that you have django set up. If not, go to the documentation [django docs](https://docs.djangoproject.com/en/4.0/topics/install/)
+First make sure that you have django set up in version 4. If not, go to the documentation [django docs](https://docs.djangoproject.com/en/4.0/topics/install/)
 
 For run the server, you should run a simple script:
 
