@@ -1,5 +1,8 @@
 <template>
   <div class="ui-add-post">
+    <h1>
+      AddPost
+    </h1>
     <form
       v-if="!postToUpdate"
       class="form"
@@ -18,11 +21,10 @@
         cols="100"
         placeholder="Content"
       />
-      <button
+      <UiButton
+        value="Dodaj artykuł"
         class="form__item"
-      >
-        Dodaj artykuł
-      </button>
+      />
     </form>
     <form
       v-else
@@ -42,17 +44,17 @@
         cols="100"
         placeholder="Content"
       />
-      <button
+      <UiButton
+        value="Zaktualizuj artykuł"
         class="form__item"
-      >
-        Zaktualizuj artykuł
-      </button>
+      />
     </form>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, toRefs } from 'vue';
+import { UiButton } from '../../../components';
 import { getAPI } from '../../../api/http';
 import { URI_POST_ADD, URI_POST_UPDATE } from '../../../api/endpoints';
 import router from '../../../router';

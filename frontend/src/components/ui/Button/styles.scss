@@ -1,0 +1,14 @@
+.ui-button {
+  padding: 0.4rem 1rem;
+  color: $black;
+  background-color: $white;
+  border: 2px solid $gray-light;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    background: $teal;
+    border-color: $teal;
+    color: $white;
+  }
+}

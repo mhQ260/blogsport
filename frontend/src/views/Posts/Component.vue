@@ -1,10 +1,5 @@
 <template>
   <div class="posts">
-    <div class="posts__title">
-      <h1>
-        Posts
-      </h1>
-    </div>
     <UiPostsList
       :posts="APIData"
     />

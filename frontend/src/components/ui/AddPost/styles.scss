@@ -3,6 +3,10 @@
   width: 65%;
   margin: 1rem auto;
 
+  h1 {
+    margin-bottom: 3rem;
+  }
+
   .form {
     display: flex;
     flex-direction: column;
@@ -18,21 +22,7 @@
     }
 
     button {
-      width: 15%;
-      background: $teal-dark;
-      color: $white;
-      border: 1px solid $teal-dark;
-      border-radius: 1.2rem;
-      cursor: pointer;
-
-      &:hover {
-        background: $teal;
-        border-color: $teal;
-      }
-
-      &:focus {
-        border: 1px solid $teal;
-      }
+      width: 20%;
     }
 
     textarea {

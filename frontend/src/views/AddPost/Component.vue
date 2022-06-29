@@ -1,8 +1,5 @@
 <template>
   <div class="add-post">
-    <h1>
-      AddPost
-    </h1>
     <UiAddPost />
   </div>
 </template>

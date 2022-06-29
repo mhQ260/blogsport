@@ -3,6 +3,7 @@
     <UiDialog
       v-if="showDialog"
       @update:modelValue="getDialogValue"
+      :postId="Number(id)"
     />
     <div
       v-if="!updateView"
@@ -12,21 +13,18 @@
         :post="post"
       />
       <div class="post__buttons">
-        <button
+        <UiButton
+          value="Dodaj komentarz"
           @click="openDialogHandler"
-        >
-          Dodaj komentarz
-        </button>
-        <button
+        />
+        <UiButton
+          value="Update"
           @click="updateButtonHandler"
-        >
-          Update
-        </button>
-        <button
+        />
+        <UiButton
+          value="Delete"
           @click="deleteButtonHandler"
-        >
-          Delete
-        </button>
+        />
       </div>
       <UiCommentsList
         :comments="comments"
@@ -42,7 +40,7 @@
 <script setup lang="ts">
 import { onMounted, ref, reactive } from 'vue';
 import { useRoute } from 'vue-router';
-import { UiPost, UiAddPost, UiCommentsList, UiDialog } from '../../components';
+import { UiPost, UiAddPost, UiCommentsList, UiDialog, UiButton } from '../../components';
 import { URI_POST_ID, URI_POST_DELETE_ID, URI_COMMENTS_FOR_POST } from '../../api/endpoints';
 import { getAPI } from '../../api/http';
 import router from '../../router';
