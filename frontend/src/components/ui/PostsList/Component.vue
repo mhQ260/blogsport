@@ -1,5 +1,8 @@
 <template>
   <div class="UiPostsList">
+    <h1>
+        Posts
+    </h1>
     <UiPost
       v-for="post in posts"
       :key="post.id"

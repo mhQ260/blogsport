@@ -10,7 +10,7 @@
         {{ post.title }}
       </div>
       <div class="UiPost__content">
-        {{ post.content }}
+        {{ post.content.substring(0,255) }}...
       </div>
     </RouterLink>
   </div>

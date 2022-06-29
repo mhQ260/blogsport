@@ -1,0 +1,61 @@
+.ui-dialog {
+  position: absolute;
+  width: 80vw;
+  height: 50vh;
+  top: 25vh;
+  left: 10vw;
+  padding: .8rem 1rem;
+  border: 2px solid $black;
+  background-color: $white;
+
+  &__header {
+    width: 100%;
+    padding-bottom: .4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $gray-light;
+
+    .header__title {
+      font-size: 2rem;
+    }
+
+    .header__button {
+      background-color: transparent;
+      width: 2.2rem;
+      height: 2.2rem;
+      color: $red-dark;
+      border: 1px solid $red-dark;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $red-dark;
+        color: $white;
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .content__item {
+      padding: .2rem .4rem;
+    }
+
+    & > textarea {
+      width: 100%;
+      height: 70%;
+    }
+
+    & > button {
+      width: 16%;
+      min-width: 16rem;
+      margin: 0 auto;
+    }
+  }
+}

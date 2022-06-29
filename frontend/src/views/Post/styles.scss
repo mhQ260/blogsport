@@ -1,0 +1,25 @@
+.post {
+
+  &__wrapper {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    & button {
+      margin-left: .5rem;
+
+      &:nth-child(1) {
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
+  }
+}

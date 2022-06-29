@@ -1,9 +1,12 @@
 <template>
   <div class="ui-add-post">
+    <h1>
+      AddPost
+    </h1>
     <form
       v-if="!postToUpdate"
       class="form"
-      @submit="submitForm"
+      @submit="sendForm"
     >
       <input
         v-model="post.title"
@@ -18,16 +21,15 @@
         cols="100"
         placeholder="Content"
       />
-      <button
+      <UiButton
+        value="Dodaj artykuł"
         class="form__item"
-      >
-        Dodaj artykuł
-      </button>
+      />
     </form>
     <form
       v-else
       class="form"
-      @submit="submitForm"
+      @submit="sendUpdatedForm"
     >
       <input
         v-model="postToUpdate.title"
@@ -42,17 +44,17 @@
         cols="100"
         placeholder="Content"
       />
-      <button
+      <UiButton
+        value="Zaktualizuj artykuł"
         class="form__item"
-      >
-        Zaktualizuj artykuł
-      </button>
+      />
     </form>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, toRefs } from 'vue';
+import { UiButton } from '../../../components';
 import { getAPI } from '../../../api/http';
 import { URI_POST_ADD, URI_POST_UPDATE } from '../../../api/endpoints';
 import router from '../../../router';
@@ -73,18 +75,14 @@ const post = ref({
   content: '',
 });
 
-const submitForm = (e: Event): void => {
-  e.preventDefault();
-  !postToUpdate ? sendForm() : sendUpdatedForm();
-};
-
 const clearForm = (): void => {
   post.value.title = '';
   post.value.content = '';
   alert('Dodano post!');
 };
 
-const sendForm = async (): Promise<void> => {
+const sendForm = async (e: Event): Promise<void> => {
+  e.preventDefault();
   try {
     await getAPI.post(URI_POST_ADD, post.value);
     clearForm();
@@ -93,7 +91,7 @@ const sendForm = async (): Promise<void> => {
   }
 };
 
-const sendUpdatedForm = async (): Promise<void> => {
+const sendUpdatedForm = async (e: Event): Promise<void> => {
   try {
     await getAPI.put(URI_POST_UPDATE(Number(postToUpdate.value.id)), postToUpdate.value);
     router.push({ path: '/' });
