@@ -12,11 +12,11 @@
       </button>
     </div>
     <div class="ui-dialog__content">
-      <input 
+      <input
         v-model="comment.author"
         class="content__item"
         placeholder="Autor"
-      />
+      >
       <textarea 
         v-model="comment.content"
         class="content__item"
@@ -61,7 +61,7 @@ const closeDialogHandler = (): void => {
   emit('update:modelValue', false);
 };
 
-const sendComHandler = async (): Promise<void> => {
+const sendComHandler = async(): Promise<void> => {
   try {
     await getAPI.post(URI_COMMENT_ADD, comment.value);
     alert('Dodano komentarz do posta!');
