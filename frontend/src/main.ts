@@ -6,3 +6,4 @@ const app = createApp(App);
 app
   .use(router)
   .mount('#app');
+//podpięcie routera do aplikacji

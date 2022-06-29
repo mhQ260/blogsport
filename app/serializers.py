@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from . models import Post, Comment
 
+#Zdefniowanie serializerów dla obiektów Post i Comment
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
